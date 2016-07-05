@@ -1,3 +1,4 @@
+"use strict";
 let mongoose = require('mongoose');
 
 let userSchema = new mongoose.Schema({
@@ -16,13 +17,13 @@ let userSchema = new mongoose.Schema({
     picture: {
         type: String,
         match: /^https?:\/\//i
-    }
+    },
     insDate: { type: Date, default: Date.now },
     updDate: { type: Date },
     oauth: {
         type: String,
         required: true
-    }
+    },
     posts: [ { type: mongoose.Schema.Types.ObjectId }],
 });
 
