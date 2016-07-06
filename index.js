@@ -10,5 +10,5 @@ let app = express();
 app.use('/api/v1/', require('./api')(wagner));
 
 app.listen(3000, function() {
-    console.log('Blog app listening on port 3000.');
+  console.log('Blog app listening on port 3000.');
 });
