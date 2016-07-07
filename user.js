@@ -4,8 +4,16 @@ let mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    lowercase: true
+    required: true
+  },
+  password: {
+    type: String,
+    require: true,
+    set: function(v) {
+      // TODO: MUST use password hashing
+      this.password = v;
+      return v;
+    }
   },
   email: {
     type: String,
@@ -25,6 +33,11 @@ let userSchema = new mongoose.Schema({
     required: true
   },
   posts: [ { type: mongoose.Schema.Types.ObjectId }],
+});
+
+userSchema.method('verify', function(password) {
+  // TODO: Muse use password hashing verify
+  return this.password === password;
 });
 
 module.exports = userSchema;
