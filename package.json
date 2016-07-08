@@ -4,7 +4,9 @@
   "description": "Blog by using MEAN stack",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha test/",
+    "watch": "gulp watch",
+    "server": "gulp runserver"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,9 @@
     "wagner-core": "^0.2.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.1.0",
     "mocha": "^2.5.3",
     "superagent": "^2.0.0"
   }

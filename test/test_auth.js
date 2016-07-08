@@ -7,7 +7,7 @@ let status = require('http-status');
 
 let URL_ROOT = 'http://localhost:3000';
 
-describe('Post API', function() {
+describe('User API', function() {
 	let server;
 	let User;
 
@@ -24,7 +24,7 @@ describe('Post API', function() {
 	});
 
 	after(function() {
-		server.close();
+		if (server) { server.close(); }
 	});
 
 	beforeEach(function(done) {
@@ -47,7 +47,8 @@ describe('Post API', function() {
     User.create({
         username: USERNAME,
         password: PASSWORD,
-        email: EMAIL
+        email: EMAIL,
+        oauth: 'invalid'
       },
       function(err, user) {
         assert.ifError(err);

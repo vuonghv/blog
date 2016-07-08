@@ -23,7 +23,7 @@ describe('Post API', function() {
 	});
 
 	after(function() {
-		server.close();
+    if (server) { server.close(); }
 	});
 
 	beforeEach(function(done) {
